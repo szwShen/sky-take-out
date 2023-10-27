@@ -37,3 +37,11 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+  aliyun:
+      oss:
+        file:
+          endpoint: oss-cn-shanghai.aliyuncs.com
+          keyid: LTAI5tBDdvTg7mER1tgamrA6
+          keysecret: oLixbUb0WWUxxgtppHSPkrkxO7veXY
+          bucketname: szw-edu
+
