@@ -89,6 +89,7 @@ public class EmployeeController {
     @ApiOperation("根据页码查询员工")
     public Result<PageResult> getEmployeeByPage(EmployeePageQueryDTO employeePageQueryDTO) {
         PageResult pageResult = employeeService.quryForPage(employeePageQueryDTO);
+        System.out.println(pageResult);
         return Result.success(pageResult);
 
     }

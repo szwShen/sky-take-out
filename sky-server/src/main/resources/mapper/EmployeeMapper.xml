@@ -41,9 +41,6 @@
             <if test="updateUser!=null">
                 update_user=#{updateUser}
             </if>
-            <if test="updateUser!=null">
-                update_user=#{updateUser}
-            </if>
         </set>
         where id=#{id}
     </update>

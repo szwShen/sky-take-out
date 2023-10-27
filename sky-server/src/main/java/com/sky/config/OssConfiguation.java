@@ -1,9 +1,7 @@
 package com.sky.config;
 
-import com.sky.dto.UserLoginDTO;
 import com.sky.properties.AliOssProperties;
 import com.sky.utils.AliOssUtil;
-import com.sky.vo.UserLoginVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +21,6 @@ public class OssConfiguation {
     public AliOssUtil aliOssUtil(AliOssProperties aliOssProperties) {
         log.info("aliossutil");
         AliOssUtil util = new AliOssUtil(aliOssProperties.getEndpoint(), aliOssProperties.getKeyid(), aliOssProperties.getKeysecret(), aliOssProperties.getBucketname());
-
         return util;
     }
 }

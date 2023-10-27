@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * @Auther: szw
@@ -46,13 +45,13 @@ public class AutoFillAspect {
         }
         Object object = args[0];
 
-        LocalDateTime now = LocalDateTime.now();
+        LocalDate now = LocalDate.now();
         Long currentId = BaseContext.getCurrentId();
         if (operationType == OperationType.INSERT) {
             try {
-                Method createTime = object.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_TIME, LocalDateTime.class);
+                Method createTime = object.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_TIME, LocalDate.class);
                 Method creatUser = object.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_USER, Long.class);
-                Method updateTime = object.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDateTime.class);
+                Method updateTime = object.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDate.class);
                 Method updateUser = object.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_USER, Long.class);
                 createTime.invoke(object, now);
                 creatUser.invoke(object, currentId);
@@ -63,7 +62,7 @@ public class AutoFillAspect {
             }
         } else if (operationType == OperationType.UPDATE) {
             try {
-                Method updateTime = object.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDateTime.class);
+                Method updateTime = object.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDate.class);
                 Method updateUser = object.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_USER, Long.class);
                 updateTime.invoke(object, now);
                 updateUser.invoke(object, currentId);
