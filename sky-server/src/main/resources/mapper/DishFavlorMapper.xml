@@ -7,4 +7,6 @@
       delete  from dish_flavor where dish_id=#{id}
 
     </delete>
+
+    <update id="ss"></update>
 </mapper>
