@@ -12,6 +12,9 @@ spring:
       url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: ${sky.datasource.username}
       password: ${sky.datasource.password}
+  redis:
+    host: ${sky.redis.host}
+    port: ${sky.redis.port}
 
 mybatis:
   #mapper配置文件
@@ -37,11 +40,17 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+    user-secret-key: szw
+    user-token-name:  authentication
   aliyun:
-      oss:
-        file:
-          endpoint: oss-cn-shanghai.aliyuncs.com
-          keyid: LTAI5tBDdvTg7mER1tgamrA6
-          keysecret: oLixbUb0WWUxxgtppHSPkrkxO7veXY
-          bucketname: szw-edu
+    oss:
+      file:
+        endpoint: oss-cn-shanghai.aliyuncs.com
+        keyid: LTAI5tBDdvTg7mER1tgamrA6
+        keysecret: oLixbUb0WWUxxgtppHSPkrkxO7veXY
+        bucketname: szw-edu
+  wx:
+   appid: wxfb632f8aa794206f
+   secret: b311e6ead983df5a3826bad5f6e82e0d
+#   code2session: https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type=authorization_code
 

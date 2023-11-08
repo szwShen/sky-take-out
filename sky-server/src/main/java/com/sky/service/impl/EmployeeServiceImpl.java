@@ -94,7 +94,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void changeStaus(Integer status, Long id) {
-        System.out.println(status);
         Employee employee = Employee.builder().status(status).id(id).build();
         employeeMapper.changeStatusById(employee);
     }
